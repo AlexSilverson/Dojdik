@@ -1,0 +1,57 @@
+definitions:
+  entity.Input:
+    properties:
+      h:
+        type: number
+      "n":
+        type: integer
+      points:
+        items:
+          $ref: '#/definitions/geom.Point'
+        type: array
+    type: object
+  geom.Point:
+    properties:
+      x:
+        type: number
+      "y":
+        type: number
+    type: object
+info:
+  contact: {}
+  description: This is a sample swagger for Dojdik
+  termsOfService: http://swagger.io/terms/
+  title: Dojdik API
+  version: "1.0"
+paths:
+  /input:
+    post:
+      consumes:
+      - application/json
+      description: Getting City by Id in detail
+      parameters:
+      - description: Request of Creating City Object
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Input'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+      summary: Getting City by Id
+      tags:
+      - Citis
+swagger: "2.0"
